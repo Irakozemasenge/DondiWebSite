@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Education from "./pages/Education";
+import Administration from "./pages/Administration";
+import Services from "./pages/Services";
+import Agriculture from "./pages/Agriculture";
+import Politique from "./pages/Politique";
+import Communaute from "./pages/Communaute";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/administration" element={<Administration />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/agriculture" element={<Agriculture />} />
+            <Route path="/politique" element={<Politique />} />
+            <Route path="/communaute" element={<Communaute />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
